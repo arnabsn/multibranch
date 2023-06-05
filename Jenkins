@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+
+    stages {
+        
+       stage('Security Scan Result') {
+            steps {
+                snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': 'App-DevOps-Azure-POC', 'buildVersion': 'jenkins-Veracode without Step-11'}" 
+            }
+        }
+           
+        stage('Change Pipeline') {
+            steps {
+                echo "change"
+            }
+        }
+        
+    }
+}
