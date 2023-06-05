@@ -5,7 +5,7 @@ pipeline {
         
        stage('Security Scan Result') {
             steps {
-                snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': 'App-DevOps-Azure-POC', 'buildVersion': 'jenkins-Veracode without Step-11'}" 
+                snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': 'VeraDemo10', 'buildVersion': '21 Mar 2023 Static'}" 
             }
         }
            
