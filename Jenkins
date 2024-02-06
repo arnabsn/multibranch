@@ -8,14 +8,6 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/arnabsn/petstore-api-flask']]])
             }
         }
-        
-        stage('VeraCode') {
-            steps {
-               snDevOpsSecurityResult securityResultAttributes: "{'scanner': 'Veracode', 'applicationName': 'VeraDemo10', 'buildVersion': '21 Mar 2023 Static'}" 
-            }
-        }
-       
-           
         stage('Change Pipeline') {
             steps {
                 snDevOpsChange changeCreationTimeOut: 3600, changeRequestDetails: '{ "attributes": { "short_description": "Veracode Testing", "priority": "1", "start_date": "2023-04-12 08:00:00", "end_date": "2023-04-30 08:00:00", "justification": "test justification", "description": "test description", "comments": "This update for work notes is from jenkins file", "work_notes": "test work notes", "assignment_group": "a337c9dfc9692050f877548ac44adacb" }, "setCloseCode": false }', changeStepTimeOut: 18000, pollingInterval: 60
